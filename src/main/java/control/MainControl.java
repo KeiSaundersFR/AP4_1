@@ -9,6 +9,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JOptionPane;
 import view.MainView;
 import model.UserListModel;
+import view.DeleteUserDialog;
 
 /**
  *
@@ -18,6 +19,7 @@ public class MainControl implements PropertyChangeListener{
     
     private MainView view = new MainView();
     private UserListModel userListModel;
+    
 
     public MainControl(MainView v)  {
         this.userListModel = new UserListModel();
