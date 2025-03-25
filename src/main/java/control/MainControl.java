@@ -9,7 +9,9 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JOptionPane;
 import view.MainView;
 import model.UserListModel;
+import view.CreateUserDialog;
 import view.DeleteUserDialog;
+import view.UpdateUserDialog;
 
 /**
  *
@@ -17,15 +19,37 @@ import view.DeleteUserDialog;
  */
 public class MainControl implements PropertyChangeListener{
     
+    /**
+     * attributs 
+     */
     private MainView view = new MainView();
     private UserListModel userListModel;
     
+    private CreateUserDialog createUserDialog;
+    private UpdateUserDialog updateUserDialog;
+    private DeleteUserDialog deleteUserDialog;
+    
+    
 
+    /**
+     * Methodes
+     * 
+     */
     public MainControl(MainView v)  {
         this.userListModel = new UserListModel();
+        
         this.view = v;
         this.view.addPropertyChangeListener(this);
         this.view.setTableModel(userListModel);
+        
+        this.createUserDialog = new CreateUserDialog(this.view, true);
+        this.createUserDialog.addPropertyChangeListener(this);
+        
+        this.updateUserDialog = new UpdateUserDialog(this.view, true);
+        this.updateUserDialog.addPropertyChangeListener(this);
+        
+        this.deleteUserDialog = new DeleteUserDialog(this.view, true);
+        this.deleteUserDialog.addPropertyChangeListener(this);
         
     }
 

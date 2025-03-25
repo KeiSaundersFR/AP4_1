@@ -1,28 +1,28 @@
-package view;
-
-import java.beans.PropertyChangeSupport;
-import java.beans.PropertyChangeListener;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
+package view;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 /**
  *
- * @author b.bondoux
+ * @author t.xiong
  */
-public class DeleteUserDialog extends javax.swing.JDialog {
+public class UpdateUserDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form DeleteUser
+     * Creates new form UpdateUserDialog
      */
     private PropertyChangeSupport listeners = new PropertyChangeSupport(this);
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         this.listeners.addPropertyChangeListener(listener);
     }
-
-    public DeleteUserDialog(java.awt.Frame parent, boolean modal) {
+    
+    public UpdateUserDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -69,22 +69,20 @@ public class DeleteUserDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DeleteUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DeleteUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DeleteUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DeleteUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateUserDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             public void run() {
-                DeleteUserDialog dialog = new DeleteUserDialog(new javax.swing.JFrame(), true);
+                UpdateUserDialog dialog = new UpdateUserDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -93,8 +91,7 @@ public class DeleteUserDialog extends javax.swing.JDialog {
                 });
                 dialog.setVisible(true);
             }
-        }
-        );
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
