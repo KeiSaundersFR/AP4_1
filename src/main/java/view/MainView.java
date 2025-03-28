@@ -36,7 +36,7 @@ public class MainView extends javax.swing.JFrame {
     
     public void setTableModel (AbstractTableModel tableModel){
         this.usersList.setModel (tableModel);
-        this.usersList.removeColumn(this.usersList.getColumn("Id"));
+        this.usersList.removeColumn(this.usersList.getColumn("Id_utilisateur"));
         
     }
 

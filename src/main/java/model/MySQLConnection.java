@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,13 +18,13 @@ public class MySQLConnection {
     private static String user = "amset";
     private static String pass = "Btssio82300";
 
-    private static MySQLConnection con = null;
+    private static Connection con = null;
 
-    public static MySQLConnection getConnexion() {
+    public static Connection getConnexion() {
         if (con == null) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                con = (MySQLConnection) DriverManager.getConnection(url, user, pass);
+                con = DriverManager.getConnection(url, user, pass);
             } catch (Exception ex) {
                 Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
