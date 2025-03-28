@@ -1,0 +1,33 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package model;
+
+import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author t.xiong
+ */
+public class MySQLConnection {
+    private static String url = "jdbc:mysql://localhost:3306/amset";
+    private static String user = "amset";
+    private static String pass = "Btssio82300";
+
+    private static MySQLConnection con = null;
+
+    public static MySQLConnection getConnexion() {
+        if (con == null) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con = (MySQLConnection) DriverManager.getConnection(url, user, pass);
+            } catch (Exception ex) {
+                Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return con;
+    }
+}
