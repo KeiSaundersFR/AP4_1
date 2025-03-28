@@ -12,11 +12,11 @@ import model.MySQLConnection;
  *
  * @author t.xiong
  */
-public class CreateUserDao {
+public class UserDao {
 
     private final MySQLConnection connexion;
     
-    public CreateUserDao()
+    public UserDao()
     {
         this.connexion = MySQLConnection.getConnexion();
     }
