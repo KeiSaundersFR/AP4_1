@@ -50,16 +50,18 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnValideModif = new javax.swing.JButton();
+        btnOpenDialogAjoutUser = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         usersList = new javax.swing.JTable();
+        btnOpenDialogModifUser = new javax.swing.JButton();
+        btnOpenDialogSuppUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnValideModif.setText("jButton1");
-        btnValideModif.addActionListener(new java.awt.event.ActionListener() {
+        btnOpenDialogAjoutUser.setText("Ajout");
+        btnOpenDialogAjoutUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnValideModifActionPerformed(evt);
+                btnOpenDialogAjoutUserActionPerformed(evt);
             }
         });
 
@@ -76,41 +78,68 @@ public class MainView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(usersList);
 
+        btnOpenDialogModifUser.setText("Modification");
+        btnOpenDialogModifUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenDialogModifUserActionPerformed(evt);
+            }
+        });
+
+        btnOpenDialogSuppUser.setText("Supprimer");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
-                .addComponent(btnValideModif)
-                .addGap(54, 54, 54))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(btnOpenDialogAjoutUser))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(btnOpenDialogModifUser))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(btnOpenDialogSuppUser)))
+                .addGap(87, 87, 87))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(btnValideModif))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(btnOpenDialogAjoutUser)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnOpenDialogModifUser)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOpenDialogSuppUser)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnValideModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValideModifActionPerformed
+    private void btnOpenDialogAjoutUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenDialogAjoutUserActionPerformed
         // TODO add your handling code here:
         listeners.firePropertyChange("btnClick", null, null);
-    }//GEN-LAST:event_btnValideModifActionPerformed
+    }//GEN-LAST:event_btnOpenDialogAjoutUserActionPerformed
+
+    private void btnOpenDialogModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenDialogModifUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOpenDialogModifUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnValideModif;
+    private javax.swing.JButton btnOpenDialogAjoutUser;
+    private javax.swing.JButton btnOpenDialogModifUser;
+    private javax.swing.JButton btnOpenDialogSuppUser;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable usersList;
     // End of variables declaration//GEN-END:variables

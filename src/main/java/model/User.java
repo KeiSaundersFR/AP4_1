@@ -21,6 +21,12 @@ public class User {
         this.mdp = mdp;
         this.role = role;
     }
+    
+    public User(String identifant, String mdp, String role) {
+        this.identifant = identifant;
+        this.mdp = mdp;
+        this.role = role;
+    }
 
     public int getId() {
         return id;

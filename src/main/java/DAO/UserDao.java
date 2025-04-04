@@ -24,10 +24,14 @@ public class UserDao {
         this.connexion = MySQLConnection.getConnexion();
     }
 
+    /**
+     * Methode qui retourne une liste de 'User' Récupère tout les données de la
+     * table 'utilisateur'
+     */
     public ArrayList<User> getAll() {
         try {
             String query = "SELECT * FROM utilisateur;";
-            
+
             PreparedStatement ps = this.connexion.prepareStatement(query);
             ResultSet res = ps.executeQuery();
 
@@ -49,5 +53,22 @@ public class UserDao {
         }
 
     }
+
+//    public User insertUser(User user) {
+//        try {
+//            String query = "insert into utilisateur(ID_UTILISATEUR, IDENTIFIANT, MOT_DE_PASS, ROLE) VALUES (?, ?, ?)";
+//            PreparedStatement ps = this.connexion.prepareStatement(query);
+//            ps.setString(1, user.getIdentifant());
+//            ps.setString(2, user.getMdp());
+//            ps.setString(3, user.getRole());
+//            int n = ps.executeUpdate();
+//            // n contient l'id généré lors de l'insertion en base
+//            // ici on le récupère car c'est un insert (inutile dans le cas d'un update ou d'un delete)
+//            user.setId(n);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(IndividuDao.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return user;
+//    }
 
 }
