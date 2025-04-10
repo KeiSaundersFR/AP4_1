@@ -34,10 +34,31 @@ public class MainView extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void setTableModel (AbstractTableModel tableModel){
+    public void setTableModel (AbstractTableModel tableModel)
+    {
         this.usersList.setModel (tableModel);
         this.usersList.removeColumn(this.usersList.getColumn("Id_utilisateur"));
         
+    }
+    
+    public int getSelectedId()
+    {
+        return (Integer) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 0);
+    }
+    
+    public String getSelectedIdentifant()
+    {
+        return (String) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 1);
+    }
+    
+    public String getSelectedMotDePasse()
+    {
+        return (String) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 2);
+    }
+    
+    public String getSelectedRole()
+    {
+        return (String) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 3);
     }
 
     /**
@@ -86,6 +107,11 @@ public class MainView extends javax.swing.JFrame {
         });
 
         btnOpenDialogSuppUser.setText("Supprimer");
+        btnOpenDialogSuppUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenDialogSuppUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,14 +122,14 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(btnOpenDialogAjoutUser))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(btnOpenDialogModifUser))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addComponent(btnOpenDialogSuppUser)))
+                        .addComponent(btnOpenDialogSuppUser))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(btnOpenDialogAjoutUser)))
                 .addGap(87, 87, 87))
         );
         layout.setVerticalGroup(
@@ -128,12 +154,25 @@ public class MainView extends javax.swing.JFrame {
 
     private void btnOpenDialogAjoutUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenDialogAjoutUserActionPerformed
         // TODO add your handling code here:
-        listeners.firePropertyChange("btnClick", null, null);
+        listeners.firePropertyChange("OpenDialogAjoutUser", null, null);
     }//GEN-LAST:event_btnOpenDialogAjoutUserActionPerformed
 
     private void btnOpenDialogModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenDialogModifUserActionPerformed
         // TODO add your handling code here:
+        listeners.firePropertyChange("OpenDialogModifUser", null, null);
     }//GEN-LAST:event_btnOpenDialogModifUserActionPerformed
+
+    private void btnOpenDialogSuppUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenDialogSuppUserActionPerformed
+        // TODO add your handling code here:
+        int reponse = JOptionPane.showConfirmDialog(this, "Êtes vous sur de vouloir supprimer cet utilisateur ?");
+        if (reponse == JOptionPane.YES_OPTION) {
+            
+            listeners.firePropertyChange("validSuppUser", null, null);
+            
+            
+            JOptionPane.showMessageDialog(this, "Cet utilisateur a était supprimé");
+        }
+    }//GEN-LAST:event_btnOpenDialogSuppUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

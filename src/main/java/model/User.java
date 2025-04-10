@@ -27,9 +27,11 @@ public class User {
         this.mdp = mdp;
         this.role = role;
     }
+    
+    public User(){};
 
     public int getId() {
-        return id;
+        return this.id;
     }
     public void setId(int id) {
         this.id = id;
@@ -37,7 +39,7 @@ public class User {
 
     
     public String getIdentifant() {
-        return identifant;
+        return this.identifant;
     }
     public void setIdentifant(String identifant) {
         this.identifant = identifant;
@@ -45,7 +47,7 @@ public class User {
 
     
     public String getMdp() {
-        return mdp;
+        return this.mdp;
     }
     public void setMdp(String mdp) {
         this.mdp = mdp;
@@ -53,7 +55,7 @@ public class User {
 
     
     public String getRole() {
-        return role;
+        return this.role;
     }
     public void setRole(String role) {
         this.role = role;

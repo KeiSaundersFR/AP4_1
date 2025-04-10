@@ -17,6 +17,8 @@ public class UpdateUserDialog extends javax.swing.JDialog {
      * Creates new form UpdateUserDialog
      */
     private PropertyChangeSupport listeners = new PropertyChangeSupport(this);
+    
+    private int id;
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         this.listeners.addPropertyChangeListener(listener);
@@ -25,6 +27,42 @@ public class UpdateUserDialog extends javax.swing.JDialog {
     public UpdateUserDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+    
+    public void setIdUser(int id)
+    {
+        this.id = id;
+    }
+    public int getIdUser()
+    {
+        return this.id;
+    }
+    
+    public void setIdentifiantUser(String identifiant)
+    {
+        this.modifIdentifiantUser.setText(identifiant);
+    }
+    public String getIdentifiantUser()
+    {
+        return this.modifIdentifiantUser.getText();
+    }
+    
+    public void setMotDePasseUser(String motDePasse)
+    {
+        this.modifMotDePasseUser.setText(motDePasse);
+    }
+    public String getMotDePasseUser()
+    {
+        return this.modifMotDePasseUser.getText();
+    }
+    
+    public void setRoleUser(String role)
+    {
+        this.modifRoleUser.setText(role);
+    }
+    public String getRoleUser()
+    {
+        return this.modifRoleUser.getText();
     }
 
     /**
@@ -36,21 +74,82 @@ public class UpdateUserDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelIdentifiant = new javax.swing.JLabel();
+        modifIdentifiantUser = new javax.swing.JTextField();
+        labelMotDePasse = new javax.swing.JLabel();
+        modifMotDePasseUser = new javax.swing.JTextField();
+        labelRole = new javax.swing.JLabel();
+        modifRoleUser = new javax.swing.JTextField();
+        btnValideAjoutUser = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        labelIdentifiant.setText("Modification Identifiant");
+
+        labelMotDePasse.setText("Modification mot de passe");
+
+        labelRole.setText("Modification Rôle");
+
+        btnValideAjoutUser.setText("Confirmer");
+        btnValideAjoutUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValideAjoutUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(modifIdentifiantUser)
+                            .addComponent(modifRoleUser)
+                            .addComponent(modifMotDePasseUser, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(btnValideAjoutUser))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(labelIdentifiant))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(labelMotDePasse))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(labelRole)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(labelIdentifiant)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modifIdentifiantUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(labelMotDePasse)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modifMotDePasseUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(labelRole)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(modifRoleUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnValideAjoutUser)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnValideAjoutUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValideAjoutUserActionPerformed
+        // TODO add your handling code here:
+        listeners.firePropertyChange("ValideModifUser", null, null);
+    }//GEN-LAST:event_btnValideAjoutUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,5 +194,12 @@ public class UpdateUserDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnValideAjoutUser;
+    private javax.swing.JLabel labelIdentifiant;
+    private javax.swing.JLabel labelMotDePasse;
+    private javax.swing.JLabel labelRole;
+    private javax.swing.JTextField modifIdentifiantUser;
+    private javax.swing.JTextField modifMotDePasseUser;
+    private javax.swing.JTextField modifRoleUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,9 +26,27 @@ public class UserListModel extends AbstractTableModel {
 
     public UserListModel() {
         this.usersList = userdao.getAll();
-//        this.usersList.add(new User(1,"Xiong","Teddy","t.xiong@gmail.com"));
-//        this.usersList.add(new User(2,"Sage","Mateo","m.sage@gmail.com"));
-//        this.usersList.add(new User(3,"Ethane","Zimmermann","e.zimmermann@gmail.com"));
+    }
+    
+    public void addUserList(String identifiant, String motDePasse, String role)
+    {
+        User dbUser = this.userdao.insertUser(new User(identifiant,motDePasse, role));
+        usersList.add(dbUser);
+        this.usersList = userdao.getAll();
+        this.fireTableDataChanged();
+    }
+    
+    public void updateUser(int id, String identifiant, String motDePasse, String role)
+    {
+        User dbuser = this.userdao.updateUser(new User(id, identifiant, motDePasse, role));
+        this.usersList = userdao.getAll();
+        this.fireTableDataChanged();
+    }
+    
+    public void userDelete(int identifiant){
+        this.userdao.deleteUser(identifiant);
+        this.usersList = userdao.getAll();
+        this.fireTableDataChanged();
     }
     
     public String getColumnName(int column){
